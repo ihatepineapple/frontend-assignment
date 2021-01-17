@@ -12,6 +12,9 @@
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 const getStringFromTemplate = (firstName, lastName) => {
+  if (firstName && lastName) {
+    return `Hello, ${firstName} ${lastName}!`
+  }
   throw new Error('Not implemented');
 };
 
@@ -27,6 +30,7 @@ const getStringFromTemplate = (firstName, lastName) => {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 const removeLeadingAndTrailingWhitespaces = (value) => {
+  return value.trim()
   throw new Error('Not implemented');
 };
 
@@ -42,13 +46,16 @@ const removeLeadingAndTrailingWhitespaces = (value) => {
 *   'cat', 3 => 'catcatcat'
 */
 const repeatString = (value, count) => {
+  if (count > 0) {
+    return value.repeat(count)
+  }
   throw new Error('Not implemented');
 };
 
 /**
  * Returns playid card id.
  *
- * Playing cards inittial deck inclides the cards in the following order:
+ * Playing cards initial deck includes the cards in the following order:
  *
  *  'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
  *  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
@@ -70,11 +77,18 @@ const repeatString = (value, count) => {
  *   'K♠' => 51
  */
 const getCardId = (value) => {
+  let cardDeck = [
+    'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+    'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+    'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+    'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'
+  ];
+  return cardDeck.indexOf(value)
   throw new Error('Not implemented');
 };
 
 /**
- * Returns a distance beetween two points by cartesian coordinates.
+ * Returns a distance between two points by cartesian coordinates.
  *
  * @param {number} x1
  * @param {number} y1
@@ -89,6 +103,10 @@ const getCardId = (value) => {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 const getDistanceBetweenPoints = (x1, y1, x2, y2) => {
+  let x_distance = (x2 - x1);
+  let y_distance = (y2 - y1);
+  let distance = Math.sqrt(x_distance * x_distance + y_distance * y_distance)
+  return distance
   throw new Error('Not implemented');
 };
 
@@ -105,6 +123,11 @@ const getDistanceBetweenPoints = (x1, y1, x2, y2) => {
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 const findElement = (arr, value) => {
+  if (arr.includes(value)) {
+    return arr.indexOf(value)
+  } else {
+    return -1
+  }
   throw new Error('Not implemented');
 };
 
@@ -120,6 +143,10 @@ const findElement = (arr, value) => {
  *    [] => []
  */
 const getArrayOfPositives = (arr) => {
+  let solution = arr.filter(function(number) {
+    return number > 0;
+  });
+    return solution;
   throw new Error('Not implemented');
 };
 

@@ -1,0 +1,164 @@
+@font-face {
+    font-family: "Europa-Bold";
+    src: url("../fonts/Europa-Bold.otf") format("otf"),
+         url("../fonts/Europa-Bold.ttf") format("ttf"),
+         url("../fonts/Europa-Bold.woff") format("woff"),
+         url("../fonts/Europa-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Europa-Light";
+    src: url("../fonts/Europa-Light.otf") format("otf"),
+         url("../fonts/Europa-Light.ttf") format("ttf"),
+         url("../fonts/Europa-Light.woff") format("woff"),
+         url("../fonts/Europa-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Europa-Regular";
+    src: url("../fonts/Europa-Regular.otf") format("otf"),
+         url("../fonts/Europa-Regular.ttf") format("ttf"),
+         url("../fonts/Europa-Regular.woff") format("woff"),
+         url("../fonts/Europa-Regular.woff2") format("woff2");
+}
+
+@mixin flex {
+    // display: -webkit-flex;
+    display: flex;
+}
+
+@mixin grey {
+    color: #929ca3;
+}
+
+@mixin red {
+    background-color: #f54c4c;
+}
+
+@mixin form-box {
+    border: 1px solid #d7e0e6;
+    border-radius: 5px;
+}
+
+body {
+    font-family: "Europa-Regular", sans-serif;
+    margin: 0;
+}
+
+main {
+    top: 0;
+    left: 0;
+    padding: 100px;
+    background-color: #f4fafe;
+    // background-color: pink;
+    @include flex; 
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 2em;
+
+    p {
+        font-family: "Europa-Light";
+        font-size: 1.6em;
+    }
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+h2 {
+    font-family: "Europa-Bold";
+    text-transform: uppercase;
+    font-size: 1.2em;
+    letter-spacing: 3px;
+}
+
+.form-wrapper {
+    @include flex;
+
+    .form-container {
+        @include flex;
+        
+        .column-form2 {
+            @include flex;
+            flex-direction: column;
+        }
+    }   
+}
+
+input, textarea, button {
+    font-family: "Europa-Regular";
+    @include grey;
+    font-size: 1.2em;
+    margin: 15px;
+}
+
+textarea {
+    width: 440px;
+    height: 208px;
+    @include form-box;
+}
+
+input {
+    height: 40px;
+    @include form-box;  
+    padding-left: 10px;
+}
+
+button {
+    color: white;
+    @include red;
+    border: none;
+    border-radius: 5px;
+    height: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.faq-section {
+    text-align: center;
+    line-height: 1em;
+    padding: 100px;
+
+    .question-wrapper {
+        @include flex;
+        flex-direction: column;
+        align-content: center;
+        margin-top: 90px;
+        margin-left: 350px;
+
+        .question-div {
+            @include flex;
+            margin-top: 50px;
+            padding-bottom: 15px;
+            align-items: center;
+            border: 3px solid;
+            border-image: 
+                linear-gradient(
+                to left, 
+                white, 
+                LightGray,
+                white,
+                ) 0 0 100% 0 ;
+
+            .plus-img {
+                margin-top: 7px;
+                margin-right: 50px;
+                padding: 10px;
+                text-align: center;
+                border-radius: 50%;
+                -webkit-box-shadow: 0px 2px 5px 0px rgba(136,136,136,1);
+                -moz-box-shadow: 0px 2px 5px 0px rgba(136,136,136,1);
+                box-shadow: 0px 2px 5px 0px rgba(136,136,136,1);
+            
+            }
+        }
+
+    }    
+}
+
+.faq-button {
+    margin-top: 90px;
+    padding: 5px 25px;
+}
